@@ -24,5 +24,5 @@ class SubjectTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

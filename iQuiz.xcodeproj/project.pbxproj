@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494E94812034E6D700973B9E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494E94802034E6D700973B9E /* QuestionViewController.swift */; };
 		C9E5A7042032B9AF00D30713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E5A7032032B9AF00D30713 /* AppDelegate.swift */; };
 		C9E5A7062032B9AF00D30713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E5A7052032B9AF00D30713 /* ViewController.swift */; };
 		C9E5A7092032B9AF00D30713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9E5A7072032B9AF00D30713 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		494E94802034E6D700973B9E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		C9E5A7002032B9AF00D30713 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E5A7032032B9AF00D30713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9E5A7052032B9AF00D30713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				C9E5A71B2032D0AC00D30713 /* superhero.jpg */,
 				C9E5A7032032B9AF00D30713 /* AppDelegate.swift */,
 				C9E5A7052032B9AF00D30713 /* ViewController.swift */,
+				494E94802034E6D700973B9E /* QuestionViewController.swift */,
 				C9E5A7072032B9AF00D30713 /* Main.storyboard */,
 				C9E5A7192032CB1E00D30713 /* SubjectTableViewCell.swift */,
 				C9E5A70A2032B9AF00D30713 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			files = (
 				C9E5A7062032B9AF00D30713 /* ViewController.swift in Sources */,
 				C9E5A71A2032CB1E00D30713 /* SubjectTableViewCell.swift in Sources */,
+				494E94812034E6D700973B9E /* QuestionViewController.swift in Sources */,
 				C9E5A7042032B9AF00D30713 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

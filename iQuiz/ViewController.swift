@@ -16,6 +16,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         "a systematic enterprise that builds and organizes knowledge in the form of testable explanations and predictions about the universe"]
     let fileNames = ["math.jpg", "superhero.jpg", "science.jpg"]
     
+    let questions = [["7 birds are on a fence. 3 fly away. How many are left?", "Mike bought 10 apples. He ate 4 and gave 2 to his sister. How many does he have left?"], ["Which one of these is not from marvel"], []]
+    
+    let answers = [[["4 birds", "2 birds", "3 birds", "7 birds"], ["9 apples", "3 apples", "4 apples", "1 apple"]],[],[]]
+    
+    var selectedIndex = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -53,5 +59,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var nextController = segue.destination as! QuestionViewController
+        nextController.questions = questions[selectedIndex]
+    }
 }
+
 
