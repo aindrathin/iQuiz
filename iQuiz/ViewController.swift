@@ -16,9 +16,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         "a systematic enterprise that builds and organizes knowledge in the form of testable explanations and predictions about the universe"]
     let fileNames = ["math.jpg", "superhero.jpg", "science.jpg"]
     
-    let questions = [["7 birds are on a fence. 3 fly away. How many are left?", "Mike bought 10 apples. He ate 4 and gave 2 to his sister. How many does he have left?"], ["Which one of these is not from marvel"], []]
+    let questions = [["7 birds are on a fence. 3 fly away. How many are left?", "Mike bought 10 apples. He ate 4 and gave 2 to his sister. How many does he have left?"],
+                     ["Which one of these is not from marvel", "The Fantastic Four have the headquarters in what building?", "Peter Parker works as a photographer for:"],
+                     ["Which time of day does the Sun appear highest in the sky?", "Which object is opaque?", "What is another word for protective coloration?"]]
     
-    let answers = [[["4 birds", "2 birds", "3 birds", "7 birds"], ["9 apples", "3 apples", "4 apples", "1 apple"]],[],[]]
+    let answers = [[["4 birds", "2 birds", "3 birds", "7 birds"], ["9 apples", "3 apples", "4 apples", "1 apple"]],
+                   [["Spiderman", "Batman", "Hulk", "Captain America"],["Stark Tower", "Fantastic Headquarters", "Baxter Building", "Xavier Institute"],["The Daily Planet", "The NY Times", "The Rolling Stone", "The Daily Bugle"]],[["noon", "midnight", "afternoon", "morning"],["glass window", "ice cube", "sunglasses", "wooden door"], ["camoflauge", "habitat", "hibernation", "migration"]]]
+    
+    let correctIndex = [[0, 2],[1, 2, 3],[0, 3, 0]]
     
     var selectedIndex = 0;
     
@@ -66,8 +71,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var nextController = segue.destination as! QuestionViewController
+        let nextController = segue.destination as! QuestionViewController
         nextController.questions = questions[selectedIndex]
+        nextController.answers = answers[selectedIndex]
+        nextController.answerIndex = correctIndex[selectedIndex]
     }
 }
 

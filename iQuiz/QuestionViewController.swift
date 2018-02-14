@@ -14,21 +14,51 @@ class QuestionViewController: UIViewController {
     
     var questions : [String] = []
     var answers : [[String]] = []
+    var answerIndex : [Int] = []
     var currentQuestion = 0
+    var points = 0;
     
-    @IBAction func action(_ sender: Any) {
+    @IBAction func action(_ sender: AnyObject) {
+        print ("sender tag: " + String(sender.tag))
+        print("answer index: " + String(answerIndex[currentQuestion]))
+        print("current Question: \(currentQuestion)")
+        print("QUestions count: \(questions.count)")
+        if (sender.tag - 1 == answerIndex[currentQuestion]) {
+            print("CORRECT!")
+            points += 1
+        } else {
+            print("try again")
+        }
+        currentQuestion += 1
+        if(currentQuestion != questions.count) {
+            newQuestion()
+        } else {
+            performSegue(withIdentifier: "showScore", sender: self)
+        }
+    }
+    
+    func newQuestion() {
+        question.text = questions[currentQuestion]
+        var button: UIButton = UIButton()
         
+        for i in 1...4 {
+            button = view.viewWithTag(i) as! UIButton
+            button.setTitle(answers[currentQuestion][i - 1], for: .normal)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        question.text = questions[0]
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
         rightSwipe.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(rightSwipe)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        newQuestion()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +66,14 @@ class QuestionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showScore") {
+            let nextController = segue.destination as! FinishedViewController
+            nextController.score = points
+            nextController.possible = questions.count
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
